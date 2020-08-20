@@ -48,9 +48,6 @@ rgb = bytearray(camera.resolution[0] * camera.resolution[1] * 3)
 gui_manager = pygame_gui.UIManager((screen.get_width(), screen.get_height()))
 clock = pygame.time.Clock()
 
-print(screen.get_width())
-print(screen.get_height())
-
 take_button = pygame_gui.elements.UIButton(relative_rect=pygame.Rect((720, 200), (80, 80)),
                                              text='Take',
                                              manager=gui_manager)
