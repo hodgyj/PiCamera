@@ -33,7 +33,7 @@ def set_cam_resolution(camera, resolution, framerate):
 screen = setup_pygame()
 camera = setup_camera(screen)
 
-cam_viewfinder_resolution = (int(screen.get_width() / 2), int(screen.get_height() / 2))
+cam_viewfinder_resolution = (int(screen.get_width()), int(screen.get_height()))
 cam_capture_resolution = (camera.MAX_RESOLUTION.width, camera.MAX_RESOLUTION.height)
 cam_video_resolution = (1920, 1080)
 
@@ -65,7 +65,8 @@ while loop:
             if event.user_type == pygame_gui.UI_BUTTON_PRESSED:
                 if event.ui_element == take_button:
                     take_picture(camera, cam_capture_resolution, './images')
-                    reset_resolution(camera, cam_viewfinder_resolution, cam_viewfinder_framerate)
+                    # reset_resolution(camera, cam_viewfinder_resolution, cam_viewfinder_framerate)
+                    set_cam_resolution(camera, cam_viewfinder_resolution, cam_viewfinder_framerate)
         gui_manager.process_events(event)
 
     gui_manager.update(time_delta)
